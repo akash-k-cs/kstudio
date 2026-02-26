@@ -4,7 +4,6 @@
   "private": true,
   "description": "Code Studio - Web-based IDE with GitHub integration and Railway deployment",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "setup": "pnpm install && pnpm build:shared",
     "dev": "pnpm -r --parallel run dev",
     "dev:web": "pnpm --filter @kstudio/web dev",
