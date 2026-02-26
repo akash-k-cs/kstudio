@@ -4,14 +4,21 @@
   "private": true,
   "description": "Code Studio - Web-based IDE with GitHub integration and Railway deployment",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "setup": "pnpm install && pnpm build:shared",
     "dev": "pnpm -r --parallel run dev",
     "dev:web": "pnpm --filter @kstudio/web dev",
     "dev:api": "pnpm --filter @kstudio/api dev",
-    "build": "pnpm -r run build",
+    "build": "pnpm install && pnpm build:shared && pnpm build:apps",
+    "build:shared": "pnpm --filter @kstudio/shared build",
+    "build:apps": "pnpm --filter @kstudio/web build && pnpm --filter @kstudio/api build",
     "build:web": "pnpm --filter @kstudio/web build",
     "build:api": "pnpm --filter @kstudio/api build",
     "lint": "pnpm -r run lint",
-    "clean": "pnpm -r run clean && rm -rf node_modules"
+    "clean": "pnpm -r run clean && rm -rf node_modules",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:logs": "docker-compose logs -f"
   },
   "keywords": ["ide", "code-editor", "github", "railway", "opencode"],
   "author": "",
