@@ -1,0 +1,9 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+onlyBuiltDependencies:
+  - node-pty
+  - "@homebridge/node-pty-prebuilt-multiarch"
+  - esbuild
+  - "@nestjs/core"
